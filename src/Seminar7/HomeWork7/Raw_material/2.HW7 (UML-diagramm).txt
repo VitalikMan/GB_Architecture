@@ -1,0 +1,160 @@
+@startuml
+
+class Provider {
+  -ID
+  -Name
+  -Contact_information
+  -Reputation
+  -Service_level
+  +getDetails()
+  +createProvider()
+  +updateProvider()
+  +deleteProvider()
+}
+
+class Customer {
+  -ID
+  -Name
+  -Contact_information
+  -Client_category
+  -Additional_information
+  +getDetails()
+  +createCustomer()
+  +updateCustomer()
+  +deleteCustomer()
+}
+
+class Order {
+  -ID
+  -Date
+  -Status
+  -Notes
+  +getOrderDetails()
+  +createOrder()
+  +updateOrder()
+  +deleteOrder()
+}
+
+class OrderDetails {
+  -ID
+  -Quantity
+  -Amount
+  +getOrderDetails()
+  +createOrderDetails()
+  +updateOrderDetails()
+}
+
+class Product {
+  -ID
+  -Name
+  -Vendor_code
+  -Brand
+  -Description
+  -Unit_price
+  +getProductDetails()
+  +createProduct()
+  +updateProduct()
+  +deleteProduct()
+}
+
+class Made {
+  -ID
+  -Name
+  -Manufacturer
+  -Production_date
+  -Address
+  -Expiry_date
+  -Warehouse_location
+  +getDetails()
+  +createMadeProduct()
+  +updateMadeProduct()
+}
+
+class Category {
+  -ID
+  -Category_name
+  +getCategoryDetails()
+  +createCategory()
+  +updateCategory()
+  +deleteCategory()
+}
+
+class Subcategory {
+  -ID
+  -Subcategory_name
+  +getSubcategoryDetails()
+  +createSubcategory()
+  +updateSubcategory()
+  +deleteSubcategory()
+}
+
+class Type {
+  -ID
+  -Type_name
+  +getTypeDetails()
+  +createType()
+  +updateType()
+  +deleteType()
+}
+
+class Manufacturer_supplier {
+  -ID
+  -Name
+  -Contact_Information
+  +getDetails()
+  +createSupplier()
+  +updateSupplier()
+  +deleteSupplier()
+}
+
+class Supply {
+  -ID
+  -Delivery_date
+  -Quantity
+  -Total_Price
+  -Status
+  +getSupplyDetails()
+  +createSupply()
+  +updateSupply()
+  +deleteSupply()
+}
+
+class Payment {
+  -ID
+  -Payment_method
+  -Payment_date
+  -Amount
+  -Payment_status
+  +getPaymentDetails()
+  +createPayment()
+  +updatePayment()
+  +deletePayment()
+}
+
+class Delivery {
+  -ID
+  -Shipping_address
+  -Shipping_method
+  -Estimated_delivery_date
+  -Actual_delivery_date
+  -Delivery_status
+  +getDeliveryDetails()
+  +createDelivery()
+  +updateDelivery()
+  +deleteDelivery()
+}
+
+Provider "1" --o "many" Order : provides
+Customer "1" --o "many" Order : orders
+Order "1" --o "many" OrderDetails : has
+Product "1" --o "many" OrderDetails : includes
+Made "1" --o "many" Product : produces
+Category "1" --o "many" Subcategory : includes
+Subcategory "1" --o "many" Product : includes
+Type "1" --o "many" Product : includes
+Manufacturer_supplier "1" --o "many" Made : supplies
+Supply "1" --o "many" Manufacturer_supplier : includes
+OrderDetails "1" --o "1" Delivery : requires
+OrderDetails "1" --o "1" Payment : requires
+
+@enduml
