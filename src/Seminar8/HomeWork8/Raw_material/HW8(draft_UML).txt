@@ -1,0 +1,42 @@
+Layer Adapter:
+class Adapter (implements iSend)
+- request: Request
++ sendRequest(request: Request): Response
+
+
+Layer Logic:
+<<interface>> iSend:
++ sendRequest(request: Request): Response
+
+<<interface>> iRepo:
++ saveOrder(order: Order): void
++ getCustomer(customerId: string): Customer
++ getTable(tableId: string): Table
+
+class Controller (composition iSend, iRepo)
+- iSend: iSend
+- iRepo: iRepo
++ createOrder(customerId: string, tableId: string): Order
+
+
+class Order (uses in Controller)
+- customerId: string
+- tableId: string
++ getOrderDetails(): string
+
+class Customer (uses in Controller)
+- customerId: string
++ getCustomerDetails(): string
+
+
+class Table (uses in Controller)
+- tableId: string
++ getTableDetails(): string
+
+
+Layer Data:
+class Repo (implements iRepo)
++ saveOrder(order: Order): void
++ getCustomer(customerId: string): Customer
++ getTable(tableId: string): Table
+

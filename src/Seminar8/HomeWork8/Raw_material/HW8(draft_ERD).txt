@@ -1,0 +1,105 @@
+Restaurant (Ресторан):
+ID
+Name
+Address
+Phone
+Site
+Operating_Hours
+Type_Cuisine
+Rating
+Minimum_Guests
+Maximum_Guests
+Reservation_Fee
+Additional_Services
+
+
+Customer (Клиент):
+ID
+Name
+Phone
+Email
+Address
+Preferred_Contact_Method
+Client_category
+Additional_information
+
+
+Booking (Бронирование):
+ID
+Customer_ID (Foreign key to Customer)
+Restaurant_ID (Foreign key to Restaurant)
+Reservation_Date
+Party_Size
+Special_Requests
+Status
+
+
+Order (Заказ):
+ID
+Booking_ID (Foreign key to Booking)
+Order_Details_ID (Foreign key to Order_Details)
+
+
+Order_Details (Детали заказа):
+ID
+Total_Amount
+Amount
+Notes
+
+
+Order_Status (Статус заказа):
+ID
+Order_ID (Foreign key to Order)
+Status_Name
+Status_Description
+Is_Default_Status
+Date_Created
+Last_Updated
+
+
+Hall (Зал):
+ID
+Restaurant_ID (Foreign key to Restaurant)
+HallName
+Capacity
+Description
+ReservationAvailability
+PricePerHour
+AdditionalInfo
+
+
+Table (Столик):
+ID
+Hall_ID (Foreign key to Hall)
+Table_Number
+Number_Of_Seats
+Location
+Status
+Availability
+
+
+Booking_Tables (Бронирование столика):
+ID
+Booking_ID (Foreign key to Booking)
+Table_ID (Foreign key to Table)
+StartTime
+EndTime
+
+
+Payment (Оплата):
+ID
+Order_ID (Foreign key to Order)
+Amount
+Payment_Date
+Payment_Method
+Payment_Status
+Refund_Status
+
+
+
+
+
+
+
+
+
