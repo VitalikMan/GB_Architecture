@@ -1,0 +1,72 @@
+HomeWork9:
+Структура ERD-диаграммы:
+
+Customer (Клиент):
+ID
+Name
+Password
+Email
+Phone
+Additional_information
+
+
+Virtual_machine:
+ID
+RAM
+CPU
+SSD
+Server_ID (связан с Server_ID)
+
+
+Server:
+ID
+RAM
+CPU
+SSD
+
+
+Tariff (Тариф):
+ID 
+Name
+Description
+Price
+Features
+
+
+Order (Заказ):
+ID
+Customer_ID
+Virtual_machine_ID
+Tariff_ID (связан с Tariff_ID)
+Order_Details_ID (связан с Order_Details_ID)
+Payment_ID (связан с Payment_ID)
+
+
+Order_Details (Детали заказа):
+ID
+Total_Amount
+Amount
+Notes
+
+
+Order_Status (Статус заказа):
+ID
+Order_ID (связан с Order_ID)
+Status_Name
+Status_Description
+Is_Default_Status
+Date_Created
+Last_Updated
+
+
+Payment (Оплата):
+ID
+Order_ID (связан с Order_ID)
+Amount
+Payment_Date
+Payment_Method
+Payment_Status
+Refund_Status
+
+
+
