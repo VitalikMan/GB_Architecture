@@ -1,0 +1,113 @@
+HW11(ERD-diagram)
+
+1) User
+ID
+User_Name
+Email
+Password
+Phone
+
+2) User_group (группа пользователей)
+ID
+Name_group
+User_ID (связь с User_ID)
+
+3) Robot_Vacuum
+ID
+Model
+Manufacturer
+Year_of_Manufacture
+Status
+
+4) Room
+ID
+Name_room
+Area (площадь комнаты)
+Furniture Presence (флаг, указывающий на наличие мебели в комнате)
+
+5) Schedule
+ID
+User_group_ID (связь с User_group_ID)
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Work_days (день недели, когда должно быть выполнено расписание)
+Work_time (время, когда должно быть выполнено расписание)
+
+6) Task
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Room_ID (связь с Room_ID)
+Task_completion_date (дата, когда должна быть выполнена задача)
+
+7) Report
+ID
+User_group_ID (связь с User_group_ID)
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Room_ID (связь с Room_ID)
+Date_report
+Description
+
+8) Cleaning_Session
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Room_ID (связь с Room_ID)
+Start_time (время начала сеанса уборки)
+End_time (время окончания сеанса уборки)
+Status (статус сеанса уборки, например, "выполняется", "завершено")
+
+9) Zone
+ID
+Room_ID (связь с Room_ID)
+Name_zone (имя зоны, например, "кухня", "гостиная")
+Zone_area (площадь зоны)
+Cleaning_mode (режим уборки для данной зоны, например, "обычный", "интенсивный")
+
+10) Maintenance
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Maintenance_date (дата последнего технического обслуживания)
+Maintenance_description (описание проведенных работ по обслуживанию)
+
+11) User_Settings
+ID
+User_group_ID (связь с User_group_ID)
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Language (язык приложения для данного пользователя)
+Notification_preferences (предпочтения уведомлений пользователя)
+
+12) ErrorLog
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Date_time (дата и время возникновения ошибки)
+Error_message (сообщение об ошибке)
+
+13) Map
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Room_ID (связь с Room_ID)
+Map_image (изображение карты комнаты)
+
+
+14) Cleaning_History
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Room_ID (связь с Room_ID)
+Date_time (дата и время уборки)
+
+
+15) Firmware_Update
+ID
+Robot_Vacuum_ID (связь с Robot_Vacuum_ID)
+Update_date (дата обновления прошивки)
+Update_status (статус обновления)
+
+
+
+
+
+
+
+
+
+
+
+

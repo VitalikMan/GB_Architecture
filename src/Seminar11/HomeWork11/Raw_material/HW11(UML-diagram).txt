@@ -1,0 +1,72 @@
+
+Слой Adapter:
+
+1) Class TokenAdapter:
++ getAuthorizationToken(User): Token
++ chekToken(Token): boolean
++ deleteToken(Token): void
+
+
+Слой Logic:
+
+1) <<interface>  iAccess:
++ authorizeUser(login, password): Token
++ checkTokenValidity(token): boolean
++ logout(token): void
+
+2) <<interface>  iRepo:
++ getUserById(id): User
++ getUserByName(name): User
++ getUserByLogin(login): User
++ getUserByPhone(phone): User
++ getUserByEmail(email): User
++ createUser(userDetails): User
++ updateUser(userDetails): void
++ deleteUser(userId): void
++ getTokenById(tokenId): Token
++ createToken(userId): Token
++ deleteToken(tokenId): void
+
+3) Class AccessController:
+- access: iAccess
+- repo: iRepo
++ authorizeUser(login, password): Token
++ checkTokenValidity(token): boolean
++ logout(token): void
+
+4) Class User:
+- id: long
+- name: string
+- login: string
+- password: string
+- phone: string
+- email: string
++ getId(): void
++ getName(): void
++ getLogin(): void
++ getPasswHash(): void
++ getPhone(): void
++ getEmail(): void
+
+5) Class Token:
+-tokenId: string
+-token: string
++ getTokenId(): void
++ getToken(): void
+
+
+Слой Data:
+
+1) Class Repo
++ getUserById(id): User
++ getUserByName(name): User
++ getUserByLogin(login): User
++ getUserByPhone(phone): User
++ getUserByEmail(email): User
++ createUser(userDetails): User
++ updateUser(userDetails): void
++ deleteUser(userId): void
++ getTokenById(tokenId): Token
++ createToken(userId): Token
++ deleteToken(tokenId): void
+
